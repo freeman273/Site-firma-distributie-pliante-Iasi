@@ -1,0 +1,492 @@
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    font-family: 'Anton', sans-serif;
+}
+
+.home-page {
+    background:
+        linear-gradient(
+            rgba(255, 255, 255, 0.75),
+            rgba(255, 255, 255, 0.75)
+        ),
+        url('postmesager.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+/* ============================================================
+   HEADER & NAVBAR
+   ============================================================ */
+.main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    background-color: #4682b4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5%;
+    height: 80px;
+    position: relative;
+}
+
+.nav-spacer {
+    width: 55px;
+    flex-shrink: 0;
+}
+
+
+/* ============================================================
+   LOGO
+   ============================================================ */
+.logo {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: white;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo h1::before {
+    content: "";
+    display: inline-block;
+    width: 25px;
+    height: 35px;
+    border-radius: 2px;
+    clip-path: polygon(0% 0%, 70% 0%, 100% 30%, 100% 100%, 0% 100%);
+    background: linear-gradient(135deg, #e0e0e0 30%, white 31%);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ============================================================
+   HAMBURGER MENU
+   ============================================================ */
+.menu-container {
+    position: absolute;
+    right: 5%;
+    display: flex;
+    align-items: center;
+}
+
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 45px;
+    height: 28px;
+    cursor: pointer;
+    z-index: 1100;
+    padding: 5px 0;
+    box-sizing: content-box;
+}
+
+.menu-icon span {
+    display: block;
+    width: 45px;
+    height: 6px;
+    background-color: white;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.menu-icon.open span:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+
+.menu-icon.open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.menu-icon.open span:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+/* Animatie hover hamburger - ingustare treptat */
+.menu-icon:hover span:nth-child(1) { width: 35px; }
+.menu-icon:hover span:nth-child(2) { width: 25px; }
+.menu-icon:hover span:nth-child(3) { width: 15px; }
+
+.menu-options {
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: #5b9bd5;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    transform: translateY(-8px);
+    z-index: 999;
+}
+
+.menu-options.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.menu-container:hover .menu-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.menu-options a {
+    display: block;
+    padding: 18px 2rem;
+    color: white;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background 0.3s ease;
+}
+
+.menu-options a:last-child {
+    border-bottom: none;
+}
+
+.menu-options a:hover {
+    background-color: #3a6fa0;
+    color: white;
+}
+
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px;
+    min-height: 60vh;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    color: white;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero .blue-text {
+    font-size: 4rem;
+    color: #3a8fd1;
+    font-family: 'Anton', sans-serif;
+    text-transform: none;
+    text-shadow: 1px 1px 8px rgba(255, 255, 255, 0.7);
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.cursor {
+    color: #3a8fd1;
+    animation: blink 0.7s step-end infinite;
+}
+
+
+/* ============================================================
+   SAGEATA ANIMATA
+   ============================================================ */
+.scroll-arrow {
+    margin-top: 55px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    animation: bounce 1.8s ease infinite;
+}
+
+.scroll-arrow span {
+    display: block;
+    width: 22px;
+    height: 22px;
+    border-right: 4px solid #3a8fd1;
+    border-bottom: 4px solid #3a8fd1;
+    transform: rotate(45deg);
+    border-radius: 2px;
+    opacity: 0.9;
+}
+
+.scroll-arrow span:nth-child(2) {
+    opacity: 0.5;
+    margin-top: -10px;
+}
+
+.scroll-arrow span:nth-child(3) {
+    opacity: 0.2;
+    margin-top: -10px;
+}
+
+.scroll-arrow:hover {
+    animation: none;
+}
+
+.scroll-arrow:hover span:nth-child(1) {
+    animation: pulse-arrow 0.9s ease infinite 0s;
+}
+
+.scroll-arrow:hover span:nth-child(2) {
+    animation: pulse-arrow 0.9s ease infinite 0.3s;
+}
+
+.scroll-arrow:hover span:nth-child(3) {
+    animation: pulse-arrow 0.9s ease infinite 0.6s;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(10px); }
+}
+
+@keyframes pulse-arrow {
+    0%   { opacity: 0.1; transform: rotate(45deg) scale(0.85); }
+    50%  { opacity: 1;   transform: rotate(45deg) scale(1.15); }
+    100% { opacity: 0.1; transform: rotate(45deg) scale(0.85); }
+}
+
+
+/* ============================================================
+   SECTIUNI CONTINUT
+   ============================================================ */
+.despre-section,
+.servicii-section,
+.procese-section {
+    width: 90%;
+    max-width: 1000px;
+    padding: 60px 40px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.92);
+    border-radius: 16px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.main-content h3 {
+    color: #4682b4;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 1px;
+}
+
+.section-intro {
+    font-size: 1.35rem;
+    color: #222;
+    line-height: 2;
+    font-family: Arial, sans-serif;
+    max-width: 750px;
+    margin: 0 auto 30px auto;
+    font-weight: 400;
+}
+
+.section-intro strong {
+    color: #4682b4;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.stat-badge {
+    display: inline-block;
+    background-color: #eaf2fb;
+    color: #4682b4;
+    font-family: Arial, sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+    padding: 16px 36px;
+    border-radius: 50px;
+    border: 2px solid #b3d4f0;
+    margin-top: 10px;
+    letter-spacing: 0.4px;
+    line-height: 1.5;
+}
+
+
+/* ============================================================
+   CARDURI SERVICII
+   ============================================================ */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: white;
+    padding: 35px 30px;
+    border-radius: 12px;
+    width: 42%;
+    min-width: 200px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-top: 4px solid #4682b4;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.13);
+}
+
+.card-icon {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+}
+
+.service-card h4 {
+    color: #4682b4;
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.service-card p {
+    color: #555;
+    font-family: Arial, sans-serif;
+    font-size: 0.98rem;
+    line-height: 1.7;
+}
+
+@media (max-width: 500px) {
+    .service-card {
+        width: 100%;
+    }
+}
+
+
+/* ============================================================
+   LISTA DE PROCESE
+   ============================================================ */
+.process-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 720px;
+    text-align: left;
+}
+
+.process-list li {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid #e8eef5;
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+    color: #222;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.process-list li:last-child {
+    border-bottom: none;
+}
+
+.step-nr {
+    flex-shrink: 0;
+    background-color: #4682b4;
+    color: white;
+    font-family: 'Anton', sans-serif;
+    font-size: 1rem;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.5px;
+}
+
+
+/* ============================================================
+   ANIMATIE SCROLL
+   ============================================================ */
+.hidden-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+.hidden-scroll.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ============================================================
+   KEYFRAMES
+   ============================================================ */
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.cta-button {
+    margin-top: 30px;
+    background-color: #ff9800;
+    color: white;
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
+    transition: 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 152, 0, 0.6);
+}

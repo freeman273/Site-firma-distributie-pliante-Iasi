@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Distributie de Pliante Iasi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+    
+        .contact-section {
+            width: 90%;
+            max-width: 700px;
+            margin: 60px auto 80px auto;
+            text-align: center;
+        }
+
+        .contact-intro {
+            font-family: Arial, sans-serif;
+            font-size: 1.1rem;
+            color: #555;
+            margin-top: -10px;
+            margin-bottom: 48px;
+            font-weight: 400;
+        }
+
+        /* Grid cu cardurile de contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            
+        }
+
+        /* Card individual */
+        .contact-card {
+            background-color: white;
+            border-radius: 16px;
+            border: 1.5px solid #e0e8f5;
+            padding: 32px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+            transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+            cursor: pointer;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 32px rgba(70, 130, 180, 0.15);
+            border-color: #4682b4;
+        }
+        .contact-card:nth-child(3) {
+         grid-column: 1 / -1;
+         max-width: 340px;
+         margin: 0 auto;
+         width: 100%;
+}
+        /* Cerc colorat cu iconita */
+        .contact-icon-wrap {
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon-wrap svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        /* Culori specifice fiecarui canal */
+        .icon-email   { background-color: #eaf2fb; }
+        .icon-phone   { background-color: #e8f5e9; }
+        .icon-facebook{ background-color: #e8edf8; }
+        .icon-address { background-color: #fff3e0; }
+
+        .contact-label {
+            font-family: 'Anton', sans-serif;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            color: #4682b4;
+            text-transform: uppercase;
+        }
+
+        .contact-value {
+            font-family: Arial, sans-serif;
+            font-size: 0.97rem;
+            color: #333;
+            line-height: 1.5;
+            word-break: break-word;
+        }
+
+        /* Cardul de adresa ocupa toata latimea (col-span) */
+        .contact-card.full-width {
+            grid-column: 1 / -1;
+            flex-direction: row;
+            text-align: left;
+            gap: 20px;
+        }
+
+        .contact-card.full-width .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        /* Responsive - pe mobile toate cardurile full width */
+        @media (max-width: 560px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-card.full-width {
+                grid-column: 1;
+            }
+        }
+
+        /* Animatie staggered la scroll */
+        .contact-card:nth-child(1) { transition-delay: 0.05s; }
+        .contact-card:nth-child(2) { transition-delay: 0.10s; }
+        .contact-card:nth-child(3) { transition-delay: 0.15s; }
+        .contact-card:nth-child(4) { transition-delay: 0.20s; }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="nav-spacer"></div>
+            <div class="logo">
+                <a href="index.html" class="logo-link" title="Pagina principală">
+                    <h1>Distribuție de Pliante Iași</h1>
+                </a>
+            </div>
+            <div class="menu-container">
+                <div class="menu-icon" id="hamburger" aria-label="Deschide meniu" role="button" tabindex="0">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="menu-options" id="menuOptions">
+                    <a href="parteneri.html">Parteneri</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="contact-section">
+
+            <div class="hidden-scroll">
+                <h3>Contact</h3>
+                <p class="contact-intro">Suntem aici pentru orice întrebare sau ofertă personalizată!</p>
+            </div>
+
+            <div class="contact-grid">
+
+                <!-- EMAIL -->
+                <a class="contact-card hidden-scroll" href="mailto:fastlogisticspedition@gmail.com" title="Trimite email">
+                    <div class="contact-icon-wrap icon-email">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#4682b4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="4" width="20" height="16" rx="3"/>
+                            <polyline points="2,4 12,13 22,4"/>
+                        </svg>
+                    </div>
+                    <span class="contact-label">Email</span>
+                    <span class="contact-value">fastlogisticspedition@gmail.com</span>
+                </a>
+
+                <!-- TELEFON -->
+                <a class="contact-card hidden-scroll" href="tel:+40750177779" title="Sună acum">
+                    <div class="contact-icon-wrap icon-phone">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#388e3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3.08 4.18 2 2 0 0 1 5.07 2h3a2 2 0 0 1 2 1.72c.13 1 .37 1.97.72 2.9a2 2 0 0 1-.45 2.11L9.09 9.91a16 16 0 0 0 6 6l1.18-1.18a2 2 0 0 1 2.11-.45c.93.35 1.9.59 2.9.72A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                    </div>
+                    <span class="contact-label">Telefon</span>
+                    <span class="contact-value">+40 750 177 779</span>
+                </a>
+
+                <!-- FACEBOOK -->
+                <a class="contact-card hidden-scroll" href="https://www.facebook.com/" target="_blank" rel="noopener" title="Pagina Facebook">
+                    <div class="contact-icon-wrap icon-facebook">
+                        <svg viewBox="0 0 24 24" fill="#1877f2">
+                            <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.313 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+                        </svg>
+                    </div>
+                    <span class="contact-label">Facebook</span>
+                    <span class="contact-value">Vizitează pagina noastră</span>
+                </a>
+
+                <!-- ADRESA - full width -->
+                <a class="contact-card full-width hidden-scroll" href="https://maps.google.com/?q=Strada+Tabacului+nr.7,+Iași" target="_blank" rel="noopener" title="Vezi pe hartă">
+                    <div class="contact-icon-wrap icon-address">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#e65100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <span class="contact-label">Adresă</span>
+                        <span class="contact-value">Iași, Municipiul Iași, Strada Tabacului nr.7<br>Cam. 1, Et. 4, Ap. 47</span>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

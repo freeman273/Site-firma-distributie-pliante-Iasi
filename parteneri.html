@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parteneri - Distributie de Pliante Iasi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    .parteneri-section {
+    width: 90%;
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.parteneri-header {
+    margin-bottom: 50px;
+}
+
+.parteneri-sub {
+    font-family: Arial, sans-serif;
+    font-size: 1.1rem;
+    color: #555;
+    margin-top: -15px;
+    font-weight: 400;
+}
+
+
+.partners-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.partners-grid .partner-card:nth-child(4) {
+    grid-column: 1 / 2;
+    justify-self: end;
+}
+
+.partners-grid .partner-card:nth-child(5) {
+    grid-column: 2 / 3;
+    justify-self: start;
+}
+.partner-card {
+    background-color: white;
+    border-radius: 14px;
+    border: 1.5px solid #e0e8f5;
+    padding: 36px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    min-height: 120px;
+    transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    width: 200px;
+    height: 140px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.partner-card:hover {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 14px 32px rgba(70, 130, 180, 0.18);
+    border-color: #4682b4;
+}
+
+
+.partner-card img {
+    max-width: 130px;
+    max-height: 65px;
+    object-fit: contain;
+    filter: grayscale(35%) opacity(0.85);
+    transition: filter 0.28s ease;
+    pointer-events: none;
+}
+
+.partner-card:hover img {
+    filter: grayscale(0%) opacity(1);
+}
+
+/* Animatie cu intarziere pentru fiecare card */
+.partners-grid .partner-card:nth-child(1) { transition-delay: 0.05s; }
+.partners-grid .partner-card:nth-child(2) { transition-delay: 0.10s; }
+.partners-grid .partner-card:nth-child(3) { transition-delay: 0.15s; }
+.partners-grid .partner-card:nth-child(4) { transition-delay: 0.20s; }
+.partners-grid .partner-card:nth-child(5) { transition-delay: 0.25s; }
+.partners-grid .partner-card:nth-child(6) { transition-delay: 0.30s; }
+.partners-grid .partner-card:nth-child(7) { transition-delay: 0.35s; }
+.partners-grid .partner-card:nth-child(8) { transition-delay: 0.40s; }
+</style>
+<body>
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="nav-spacer"></div>
+            <div class="logo">
+                <a href="index.html" class="logo-link" title="Pagina principală">
+                    <h1>Distribuție de Pliante Iași</h1>
+                </a>
+            </div>
+            <div class="menu-container">
+                <div class="menu-icon" id="hamburger" aria-label="Deschide meniu" role="button" tabindex="0">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="menu-options" id="menuOptions">
+                    <a href="parteneri.html">Parteneri</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="parteneri-section">
+
+            <div class="parteneri-header hidden-scroll">
+                <h3>Partenerii noștri</h3>
+                <p class="parteneri-sub">Firme alături de care am desfășurat campanii de distribuție în Iași:</p>
+            </div>
+
+            <div class="partners-grid">
+
+                <a class="partner-card hidden-scroll" href="https://www.penny.ro" target="_blank" rel="noopener" title="Penny România">
+                    <img src="penny.png" alt="Penny">
+                </a>
+
+                <a class="partner-card hidden-scroll" href="https://www.kaufland.ro" target="_blank" rel="noopener" title="Kaufland România">
+                    <img src="kaufland.png" alt="Kaufland">
+                </a>
+
+                <a class="partner-card hidden-scroll" href="https://www.selgros.ro" target="_blank" rel="noopener" title="Selgros România">
+                    <img src="selgros.png" alt="Selgros">
+                </a>
+
+                <a class="partner-card hidden-scroll" href="https://www.drmax.ro" target="_blank" rel="noopener" title="Dr.Max România">
+                    <img src="dr max.jpg" alt="Dr.Max">
+                </a>
+
+                <a class="partner-card hidden-scroll" href="https://www.bricodepot.ro" target="_blank" rel="noopener" title="Brico Dépôt România">
+                    <img src="brico.png" alt="Brico Dépôt">
+                </a>
+
+
+            </div>
+
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
