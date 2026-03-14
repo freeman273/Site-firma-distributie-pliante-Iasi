@@ -1,12 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-    /* ============================================================
-       HAMBURGER MENU
-       - click toggle clasa .open pe icon (animatie X in CSS)
-       - click toggle clasa .active pe meniu (arata/ascunde)
-       - meniul se inchide si la click in afara lui
-       - meniul se inchide si la click pe un link din el
-       ============================================================ */
     const hamburger = document.getElementById('hamburger');
     const menuOptions = document.getElementById('menuOptions');
 
@@ -38,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        /* Accesibilitate: permite deschiderea cu tastele Enter sau Spatiu */
+      
         hamburger.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
@@ -46,13 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
-
-    /* ============================================================
-       TYPING EFFECT - efect de scriere automata in sectiunea hero
-       FIX: scroll-arrow este readaugat dupa resetarea innerHTML,
-            altfel era sters odata cu continutul hero-ului.
-       ============================================================ */
     const hero = document.querySelector('.hero');
 
     if (hero) {
@@ -61,14 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
             "Noi îți oferim soluția!"
         ];
 
-        hero.innerHTML = ''; /* goleste hero-ul inainte de a rescrie textul */
+        hero.innerHTML = ''; 
 
         lines.forEach((text, index) => {
             const h2 = document.createElement('h2');
             h2.classList.add('blue-text');
             hero.appendChild(h2);
-
-            /* Fiecare linie incepe dupa ce linia anterioara s-a terminat */
             setTimeout(() => {
                 const cursor = document.createElement('span');
                 cursor.classList.add('cursor');
@@ -79,25 +62,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 const interval = setInterval(() => {
                     h2.insertBefore(document.createTextNode(text[i]), cursor);
                     i++;
-
-                    /* Opreste intervalul si sterge cursorul la final */
                     if (i >= text.length) {
                         clearInterval(interval);
                         cursor.remove();
                     }
-                }, 60); /* viteza de scriere: 60ms per litera */
+                }, 60); 
 
-            }, index * 2200); /* intarziere intre linii: 2200ms */
+            }, index * 2200); 
         });
-
-        /* FIX: readauga sageata animata dupa ce hero-ul a fost resetat */
         const scrollArrow = document.createElement('div');
         scrollArrow.classList.add('scroll-arrow');
         scrollArrow.setAttribute('aria-hidden', 'true');
         scrollArrow.innerHTML = '<span></span><span></span><span></span>';
         hero.appendChild(scrollArrow);
-
-        /* Click pe sageata duce la prima sectiune */
         scrollArrow.addEventListener('click', () => {
             const primasectiune = document.querySelector('.despre-section');
             if (primasectiune) primasectiune.scrollIntoView({ behavior: 'smooth' });
